@@ -8,23 +8,24 @@ from src.configuration.mongo_db_connection import MongoDBClient
 from src.constant.database import DATABASE_NAME
 from src.exception import CustomException
 
-
 class SensorData:
     """
     This class help to export entire mongo db record as pandas dataframe
     """
-
     def __init__(self):
         """
+        create connection with mongo db
         """
         try:
             self.mongo_client = MongoDBClient(database_name=DATABASE_NAME)
-
         except Exception as e:
             raise CustomException(e, sys)
 
 
     def save_csv_file(self,file_path ,collection_name: str, database_name: Optional[str] = None):
+        """
+        Save data to mongo db
+        """
         try:
             data_frame=pd.read_csv(file_path)
             data_frame.reset_index(drop=True, inplace=True)
@@ -56,8 +57,6 @@ class SensorData:
                 df = df.drop(columns=["_id"], axis=1)
 
             df.replace({"na": np.nan}, inplace=True)
-
             return df
-
         except Exception as e:
             raise CustomException(e, sys)
