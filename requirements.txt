@@ -1,6 +1,5 @@
 pymongo
 PyYAML
-sciki-learn
 dill
 numpy
 pandas
