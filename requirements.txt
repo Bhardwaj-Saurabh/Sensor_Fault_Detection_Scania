@@ -4,5 +4,6 @@ dill
 numpy
 pandas
 scikit-learn
+imblearn
 -e .
 

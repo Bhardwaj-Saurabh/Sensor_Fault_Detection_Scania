@@ -102,11 +102,11 @@ class DataValidation:
 
             #Validate numerical columns
 
-            status = self.is_numerical_column_exist(dataframe=train_dataframe)
+            status = self.is_numerical_columns_exists(dataframe=train_dataframe)
             if not status:
                 error_message=f"{error_message}Train dataframe does not contain all numerical columns.\n"
             
-            status = self.is_numerical_column_exist(dataframe=test_dataframe)
+            status = self.is_numerical_columns_exists(dataframe=test_dataframe)
             if not status:
                 error_message=f"{error_message}Test dataframe does not contain all numerical columns.\n"
             
