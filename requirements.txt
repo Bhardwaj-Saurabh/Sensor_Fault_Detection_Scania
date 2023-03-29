@@ -3,5 +3,6 @@ PyYAML
 dill
 numpy
 pandas
+scikit-learn
 -e .
 
