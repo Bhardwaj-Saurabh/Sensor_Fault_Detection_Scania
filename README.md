@@ -6,4 +6,4 @@ The Air Pressure System (APS) is a critical component of a heavy-duty vehicle th
 
 This is a Binary Classification problem, in which the affirmative class indicates that the failure was caused by a certain component of the APS, while the negative class indicates that the failure was caused by something else.
 
-As the problem is to reduce the cost due to unnecessary repairs, it is important to reduce false positives and false negatives. More importantly, to reduce false negatives, since cost incurred due to false negative is 50 times higher than the false positives as shown in [EDA](https://github.com/avnyadav/sensor-fault-detection/blob/24c6cb210619ce03f0b40eeaca167b3eb26853b8/notebooks/Scania_APS_failure_prediction.ipynb) notebook.
+As the problem is to reduce the cost due to unnecessary repairs, it is important to reduce false positives and false negatives. More importantly, to reduce false negatives, since cost incurred due to false negative is 50 times higher than the false positives as shown in [EDA](https://github.com/Bhardwaj-Saurabh/Sensor_Fault_Detection_Scania/blob/master/notebooks/Scania_APS_failure_prediction.ipynb) notebook.
