@@ -97,4 +97,5 @@ class TrainingPipeline:
             TrainingPipeline.is_pipeline_running=False
 
         except Exception as e:
+            TrainingPipeline.is_pipeline_running=False
             raise CustomException(e, sys)
