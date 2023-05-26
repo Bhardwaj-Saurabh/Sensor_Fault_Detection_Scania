@@ -39,6 +39,62 @@ Followings assumptions have been made to define the solution strategy for diamin
 4. Class Imbalance: Assume that the dataset may suffer from class imbalance, meaning there may be significantly more instances of non-faulty APS readings compared to faulty readings. You might need to address this imbalance to avoid bias towards the majority class during model training.
 
 ## 6.0 Product Structure
+
+.
+├── README.md
+├── aps_failure_training_set1.csv
+├── config
+│   └── schema.yaml
+├── images
+│   ├── Scania.jpg
+│   ├── conf_matrix.png
+│   ├── distribution.png
+│   ├── missing_value.png
+│   └── y_label.png
+├── logs
+│   ├── 05_03_2023_22_16_39.log
+│   │   └── 05_03_2023_22_16_39.log
+├── main.py
+├── notebooks
+│   └── Scania_APS_failure_prediction.ipynb
+├── requirements.txt
+├── saved_models
+│   └── 1680182317
+│       └── model.pkl
+├── setup.py
+└── src
+    ├── cloud_storage
+    │   └── __init__.py
+    ├── components
+    │   ├── data_ingestion.py
+    │   ├── data_transformation.py
+    │   ├── data_validation.py
+    │   ├── model_evaluation.py
+    │   ├── model_pusher.py
+    │   └── model_trainer.py
+    ├── configuration
+    │   └── mongo_db_connection.py
+    ├── constant
+    │   ├── application.py
+    │   ├── database.py
+    │   ├── env_variable.py
+    │   ├── s3_bucket.py
+    │   └── training_pipeline
+    ├── data_access
+    │   └── sensor_data.py
+    ├── entity
+    │   ├── artifact_entity.py
+    │   └── config_entity.py
+    ├── exception.py
+    ├── logger.py
+    ├── ml
+    │   ├── metric
+    │   └── model
+    ├── pipeline
+    │   └── training_pipeline.py
+    └── utils
+        └── main_utils.py
+
 .
 ├── README.md                                     # Read me file for the project
 ├── config                                        # System Configurations directory
