@@ -123,7 +123,7 @@ The image above shows data distribution of first few sensor reading. Intrestingl
 
 ## 9.0 Machine Learning Applied
 Here's the results of the machine learning models with their different imputation methods.
-
+```
 +--------------------+-------------------------+------------+
 |       Model        |    Imputation_method    | Total_cost |
 +--------------------+-------------------------+------------+
@@ -134,6 +134,7 @@ Here's the results of the machine learning models with their different imputatio
 | CatBoostClassifier |          Median         |    5760    |
 |   Random Forest    |           PCA           |   34150    |
 +--------------------+-------------------------+------------+
+```
 
 ## 10.0 Final Result
 
