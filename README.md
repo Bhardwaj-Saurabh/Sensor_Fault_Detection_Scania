@@ -108,15 +108,15 @@ My solution to solve this problem will be the development of a data science proj
 
 ## 8.0 Top Data Insights
 
-<img src="https://github.com/Bhardwaj-Saurabh/Sensor_Fault_Detection_Scania/blob/master/images/y_label.png" width="600">
+<img src="https://github.com/Bhardwaj-Saurabh/Sensor_Fault_Detection_Scania/blob/master/images/y_label.png" width="400">
 
 As highlighted above, images shows the imbalance of depedent variable.
 
-<img src="https://github.com/Bhardwaj-Saurabh/Sensor_Fault_Detection_Scania/blob/master/images/missing_value.png" width="600">
+<img src="https://github.com/Bhardwaj-Saurabh/Sensor_Fault_Detection_Scania/blob/master/images/missing_value.png" width="800">
 
 The image above shows the missing values present in the dataset.
 
-<img src="https://github.com/Bhardwaj-Saurabh/Sensor_Fault_Detection_Scania/blob/master/images/distribution.png" width="600">
+<img src="https://github.com/Bhardwaj-Saurabh/Sensor_Fault_Detection_Scania/blob/master/images/distribution.png" width="800">
 
 The image above shows data distribution of first few sensor reading. Intrestingly, for almost all sensors, the data is normally distributed and also lies within the same range.
 
