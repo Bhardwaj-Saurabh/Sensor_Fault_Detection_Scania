@@ -39,7 +39,7 @@ Followings assumptions have been made to define the solution strategy for diamin
 4. Class Imbalance: Assume that the dataset may suffer from class imbalance, meaning there may be significantly more instances of non-faulty APS readings compared to faulty readings. You might need to address this imbalance to avoid bias towards the majority class during model training.
 
 ## 6.0 Product Structure
-
+.
 ├── README.md                                     # Read me file for the project
 ├── config                                        # System Configurations directory
 │   └── schema.yaml
