@@ -1,7 +1,7 @@
 # 1.0 Sensor Fault Detection Using Official Scania Dataset
 An end-to-end predictive maintainance Data Science project to predict APS sensor fault detection, based on Scania dataset from Kaggle. 
 
-<img src="https://github.com/Bhardwaj-Saurabh/Sensor_Fault_Detection_Scania/images/Scania.jpg">
+<img src="https://github.com/Bhardwaj-Saurabh/Sensor_Fault_Detection_Scania/blob/master/images/Scania.jpg">
 
 ## 2.0 Problem Statement
 The Air Pressure System (APS) is a critical component of a heavy-duty vehicle that uses compressed air to force a piston to provide pressure to the brake pads, slowing the vehicle down. The benefits of using an APS instead of a hydraulic system are the easy availability and long-term sustainability of natural air. The data set is provided by Scania with open source licence.
@@ -108,15 +108,15 @@ My solution to solve this problem will be the development of a data science proj
 
 ## 8.0 Top Data Insights
 
-<img src="https://github.com/Bhardwaj-Saurabh/Sensor_Fault_Detection_Scania/images/y_label.png" width="600">
+<img src="https://github.com/Bhardwaj-Saurabh/Sensor_Fault_Detection_Scania/blob/master/images/y_label.png" width="600">
 
 As highlighted above, images shows the imbalance of depedent variable.
 
-<img src="https://github.com/Bhardwaj-Saurabh/Sensor_Fault_Detection_Scania/images/missing_value.png" width="600">
+<img src="https://github.com/Bhardwaj-Saurabh/Sensor_Fault_Detection_Scania/blob/master/images/missing_value.png" width="600">
 
 The image above shows the missing values present in the dataset.
 
-<img src="https://github.com/Bhardwaj-Saurabh/Sensor_Fault_Detection_Scania/images/data_distribution.png" width="600">
+<img src="https://github.com/Bhardwaj-Saurabh/Sensor_Fault_Detection_Scania/blob/master/images/distribution.png" width="600">
 
 The image above shows data distribution of first few sensor reading. Intrestingly, for almost all sensors, the data is normally distributed and also lies within the same range.
 
@@ -136,7 +136,7 @@ Here's the results of the machine learning models with their different imputatio
 
 ## 10.0 Final Result
 
-<img src="https://github.com/Bhardwaj-Saurabh/Sensor_Fault_Detection_Scania/images/conf_matrix.png" width="600">
+<img src="https://github.com/Bhardwaj-Saurabh/Sensor_Fault_Detection_Scania/blob/master/images/conf_matrix.png" width="600">
 
 The final model is XGBoost Classifier with simple imputer with final accuracy of 99.6% and cost of 2950.
 
