@@ -40,7 +40,6 @@ Followings assumptions have been made to define the solution strategy for diamin
 
 ## 6.0 Product Structure
 
-Sensor_Fault_Detection_Scania
 ├── README.md                                     # Read me file for the project
 ├── config                                        # System Configurations directory
 │   └── schema.yaml
