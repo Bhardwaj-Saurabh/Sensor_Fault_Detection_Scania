@@ -8,10 +8,12 @@ from src.configuration.mongo_db_connection import MongoDBClient
 from src.constant.database import DATABASE_NAME
 from src.exception import CustomException
 
+
 class SensorData:
     """
     This class help to export entire mongo db record as pandas dataframe
     """
+
     def __init__(self):
         """
         create connection with mongo db
@@ -21,13 +23,12 @@ class SensorData:
         except Exception as e:
             raise CustomException(e, sys)
 
-
-    def save_csv_file(self,file_path ,collection_name: str, database_name: Optional[str] = None):
+    def save_csv_file(self, file_path, collection_name: str, database_name: Optional[str] = None):
         """
         Save data to mongo db
         """
         try:
-            data_frame=pd.read_csv(file_path)
+            data_frame = pd.read_csv(file_path)
             data_frame.reset_index(drop=True, inplace=True)
             records = list(json.loads(data_frame.T.to_json()).values())
             if database_name is None:
@@ -39,9 +40,8 @@ class SensorData:
         except Exception as e:
             raise CustomException(e, sys)
 
-
     def export_collection_as_dataframe(
-        self, collection_name: str, database_name: Optional[str] = None) -> pd.DataFrame:
+            self, collection_name: str, database_name: Optional[str] = None) -> pd.DataFrame:
         """
         export entire collectin as dataframe:
         return pd.DataFrame of collection

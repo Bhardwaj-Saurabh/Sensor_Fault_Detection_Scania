@@ -7,30 +7,32 @@ from src.logger import logging
 from src.utils.main_utils import read_yaml_file, write_yaml_file
 from scipy.stats import ks_2samp
 import pandas as pd
-import os, sys
+import os
+import sys
+
 
 class DataValidation:
-    def __init__(self, data_ingestion_artifact:DataIngestionArtifact,
-                 data_validation_config:DataValidationConfig):
+    def __init__(self, data_ingestion_artifact: DataIngestionArtifact,
+                 data_validation_config: DataValidationConfig):
         try:
             self.data_ingestion_artifact = data_ingestion_artifact
             self.data_validation_config = data_validation_config
             self._schema_config = read_yaml_file(SCHEMA_FILE_PATH)
         except Exception as e:
             raise CustomException(e, sys)
-        
-    def validate_number_of_columns(self, dataframe:pd.DataFrame)->bool:
+
+    def validate_number_of_columns(self, dataframe: pd.DataFrame) -> bool:
         try:
             number_of_columns = len(self._schema_config['columns'])
             logging.info(f"Required number of columns: {number_of_columns}")
             logging.info(f"Data frame has columns: {len(dataframe.columns)}")
-            if len(dataframe.columns)==number_of_columns:
+            if len(dataframe.columns) == number_of_columns:
                 return True
             return False
         except Exception as e:
             raise CustomException(e, sys)
-        
-    def is_numerical_columns_exists(self, dataframe:pd.DataFrame)->bool:
+
+    def is_numerical_columns_exists(self, dataframe: pd.DataFrame) -> bool:
         try:
             numerical_columns = self._schema_config["numerical_columns"]
             dataframe_columns = dataframe.columns
@@ -42,19 +44,20 @@ class DataValidation:
                     numerical_column_present = False
                     missing_numerical_columns.append(num_column)
 
-            logging.info(f"Missing numerical columns: [{missing_numerical_columns}]")
+            logging.info(
+                f"Missing numerical columns: [{missing_numerical_columns}]")
             return numerical_column_present
         except Exception as e:
             raise CustomException(e, sys)
-        
+
     @staticmethod
-    def read_data(file_path)->pd.DataFrame:
+    def read_data(file_path) -> pd.DataFrame:
         try:
             return pd.read_csv(file_path)
         except Exception as e:
             raise CustomException(e, sys)
-        
-    def detect_dataset_drift(self, base_df, current_df, threshold=0.05)->bool:
+
+    def detect_dataset_drift(self, base_df, current_df, threshold=0.05) -> bool:
         try:
             status = True
             report = {}
@@ -67,9 +70,9 @@ class DataValidation:
                 else:
                     is_found = True
                     status = False
-                report.update({column:{
-                    "p_value":float(is_same_dist.pvalue),
-                    "drift_status":is_found
+                report.update({column: {
+                    "p_value": float(is_same_dist.pvalue),
+                    "drift_status": is_found
                 }})
 
             drift_report_file_path = self.data_validation_config.drift_report_file_path
@@ -81,41 +84,42 @@ class DataValidation:
             return status
         except Exception as e:
             raise CustomException(e, sys)
-        
-    def initiate_data_validation(self)->DataValidationArtifact:
+
+    def initiate_data_validation(self) -> DataValidationArtifact:
         try:
             error_message = ""
             train_file_path = self.data_ingestion_artifact.trained_file_path
             test_file_path = self.data_ingestion_artifact.test_file_path
 
-            #Reading data from train and test file location
+            # Reading data from train and test file location
             train_dataframe = DataValidation.read_data(train_file_path)
             test_dataframe = DataValidation.read_data(test_file_path)
 
-            #Validate number of columns
+            # Validate number of columns
             status = self.validate_number_of_columns(dataframe=train_dataframe)
             if not status:
-                error_message=f"{error_message}Train dataframe does not contain all columns.\n"
+                error_message = f"{error_message}Train dataframe does not contain all columns.\n"
             status = self.validate_number_of_columns(dataframe=test_dataframe)
             if not status:
-                error_message=f"{error_message}Test dataframe does not contain all columns.\n"
-        
+                error_message = f"{error_message}Test dataframe does not contain all columns.\n"
 
-            #Validate numerical columns
+            # Validate numerical columns
 
-            status = self.is_numerical_columns_exists(dataframe=train_dataframe)
+            status = self.is_numerical_columns_exists(
+                dataframe=train_dataframe)
             if not status:
-                error_message=f"{error_message}Train dataframe does not contain all numerical columns.\n"
-            
+                error_message = f"{error_message}Train dataframe does not contain all numerical columns.\n"
+
             status = self.is_numerical_columns_exists(dataframe=test_dataframe)
             if not status:
-                error_message=f"{error_message}Test dataframe does not contain all numerical columns.\n"
-            
-            if len(error_message)>0:
+                error_message = f"{error_message}Test dataframe does not contain all numerical columns.\n"
+
+            if len(error_message) > 0:
                 raise Exception(error_message)
 
-            #Let check data drift
-            status = self.detect_dataset_drift(base_df=train_dataframe,current_df=test_dataframe)
+            # Let check data drift
+            status = self.detect_dataset_drift(
+                base_df=train_dataframe, current_df=test_dataframe)
 
             data_validation_artifact = DataValidationArtifact(
                 validation_status=status,
@@ -126,9 +130,9 @@ class DataValidation:
                 drift_report_file_path=self.data_validation_config.drift_report_file_path,
             )
 
-            logging.info(f"Data validation artifact: {data_validation_artifact}")
+            logging.info(
+                f"Data validation artifact: {data_validation_artifact}")
 
             return data_validation_artifact
         except Exception as e:
-            raise CustomException(e,sys)
-        
+            raise CustomException(e, sys)

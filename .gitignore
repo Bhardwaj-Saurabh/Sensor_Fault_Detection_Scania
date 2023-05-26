@@ -27,6 +27,7 @@ share/python-wheels/
 *.egg
 MANIFEST
 artifact/
+.vscode
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -129,3 +130,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# data
+aps_failure_training_set1.csv
