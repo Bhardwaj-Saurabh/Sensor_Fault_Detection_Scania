@@ -40,62 +40,8 @@ Followings assumptions have been made to define the solution strategy for diamin
 
 ## 6.0 Product Structure
 
-.
-├── README.md
-├── aps_failure_training_set1.csv
-├── config
-│   └── schema.yaml
-├── images
-│   ├── Scania.jpg
-│   ├── conf_matrix.png
-│   ├── distribution.png
-│   ├── missing_value.png
-│   └── y_label.png
-├── logs
-│   ├── 05_03_2023_22_16_39.log
-│   │   └── 05_03_2023_22_16_39.log
-├── main.py
-├── notebooks
-│   └── Scania_APS_failure_prediction.ipynb
-├── requirements.txt
-├── saved_models
-│   └── 1680182317
-│       └── model.pkl
-├── setup.py
-└── src
-    ├── cloud_storage
-    │   └── __init__.py
-    ├── components
-    │   ├── data_ingestion.py
-    │   ├── data_transformation.py
-    │   ├── data_validation.py
-    │   ├── model_evaluation.py
-    │   ├── model_pusher.py
-    │   └── model_trainer.py
-    ├── configuration
-    │   └── mongo_db_connection.py
-    ├── constant
-    │   ├── application.py
-    │   ├── database.py
-    │   ├── env_variable.py
-    │   ├── s3_bucket.py
-    │   └── training_pipeline
-    ├── data_access
-    │   └── sensor_data.py
-    ├── entity
-    │   ├── artifact_entity.py
-    │   └── config_entity.py
-    ├── exception.py
-    ├── logger.py
-    ├── ml
-    │   ├── metric
-    │   └── model
-    ├── pipeline
-    │   └── training_pipeline.py
-    └── utils
-        └── main_utils.py
-
-.
+```
+Sensor_Fault_Dectection_Scania
 ├── README.md                                     # Read me file for the project
 ├── config                                        # System Configurations directory
 │   └── schema.yaml
@@ -126,7 +72,6 @@ Followings assumptions have been made to define the solution strategy for diamin
     │   ├── env_variable.py
     │   ├── s3_bucket.py
     │   └── training_pipeline
-    │       ├── __init__.py
     ├── data_access                               # data access directory
     │   └── sensor_data.py
     ├── entity                                    # components entity and artifacts constants
@@ -143,6 +88,7 @@ Followings assumptions have been made to define the solution strategy for diamin
     │   └── training_pipeline.py
     └── utils                                     # util and helper function directory
        └── main_utils.py
+```
 
 ## 7.0 Solution Strategy
 My solution to solve this problem will be the development of a data science project. This project will have a machine learning model which can predict if the fault is caused by APS sensor or not based on provided features.
